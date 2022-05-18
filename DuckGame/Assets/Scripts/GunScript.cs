@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-    Vector3 movementX = new Vector3(0.1f, 0, 0);
+    Vector3 movementX = new Vector3(0.01f, 0, 0);
     public GameObject cannon;
     Quaternion rotation = Quaternion.Euler(90, 0, 0);
 
@@ -20,7 +20,7 @@ public class GunScript : MonoBehaviour
         Vector3 origin = cannon.transform.position;
         if(transform.position.x >= -1.5)
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            if(Input.GetKey(KeyCode.LeftArrow))
             {
                 transform.position -= movementX;
             }
@@ -28,7 +28,7 @@ public class GunScript : MonoBehaviour
 
         if(transform.position.x <= 1.5)
         {
-            if(Input.GetKeyDown(KeyCode.RightArrow))
+            if(Input.GetKey(KeyCode.RightArrow))
             {
                 transform.position += movementX;
             }
