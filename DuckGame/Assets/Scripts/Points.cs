@@ -16,7 +16,6 @@ public class Points : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
             if(puntuacion == 1)
             {
                 Debug.Log("Has matado " + puntuacion +  " pato...");
@@ -26,6 +25,7 @@ public class Points : MonoBehaviour
                 Debug.Log("Has matado " + puntuacion + " patos...");
             }
             Debug.Log("FIN DEL JUEGO");
+            Application.Quit();
         }
     }
 }
