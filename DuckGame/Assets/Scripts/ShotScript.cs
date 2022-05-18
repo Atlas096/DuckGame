@@ -18,7 +18,8 @@ public class ShotScript : MonoBehaviour
         transform.Translate(movement * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision){
+    void OnCollisionEnter(Collision collision)
+    {
         Destroy(gameObject);
     }
 }

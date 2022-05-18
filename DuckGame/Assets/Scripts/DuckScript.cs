@@ -15,6 +15,8 @@ public class DuckScript : MonoBehaviour
     //Vector to change rotation when reach position
     Vector3 rotateDuck = new Vector3(0, 180, 0);
 
+    bool isHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +27,31 @@ public class DuckScript : MonoBehaviour
     void Update()
     {
         transform.Translate(move * Time.deltaTime);
+
     }
 
-    void OnCollisionEnter(Collision collision){
-        transform.Rotate(hit, Space.Self);
+    void OnCollisionEnter(Collision collision)
+    {
+        transform.Rotate(hit, Space.Self); 
+        isHit = true;
+        Points.puntuacion += 1;
+        Debug.Log("Puntuación: " + Points.puntuacion);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         transform.Rotate(rotateDuck, Space.Self);
+        if(isHit)
+        {
+            if(transform.rotation.eulerAngles.z == 270)
+            {
+                transform.Rotate(0, 0, -270);
+            }
+
+            if(transform.rotation.eulerAngles.z == 90)
+            {
+                transform.Rotate(0, 0, -90);
+            }
+        }
     }
 }
